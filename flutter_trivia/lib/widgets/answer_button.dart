@@ -13,7 +13,7 @@ class AnswerButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         
       ),
-      child: const Text("data"),
+      child: Text(answerText),
     );
   }
 }

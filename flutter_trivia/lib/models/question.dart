@@ -1,6 +1,6 @@
 class Question {
-  const Question(this.text, this.answers);
+  const Question(this.question, this.answers);
 
-  final String text;
+  final String question;
   final List<String> answers;
 }
