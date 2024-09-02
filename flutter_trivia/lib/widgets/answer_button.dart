@@ -11,9 +11,9 @@ class AnswerButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onTap, 
       style: ElevatedButton.styleFrom(
-        
+        padding: const EdgeInsets.all(10)
       ),
-      child: Text(answerText),
+      child: Text(answerText, textAlign: TextAlign.center,),
     );
   }
 }
