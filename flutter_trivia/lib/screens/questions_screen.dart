@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_trivia/models/question.dart';
 import 'package:flutter_trivia/widgets/answer_button.dart';
 import 'package:flutter_trivia/data/questions_list.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -35,7 +36,11 @@ class _QuestionScreen extends State<QuestionsScreen> {
             // Question
             Text(
               currentQuestion.question,
-              style: const TextStyle(color: Colors.white, fontSize: 15),
+              style: GoogleFonts.lato(
+                color: Colors.white, 
+                fontSize: 20,
+                fontWeight: FontWeight.bold
+              ),
               textAlign: TextAlign.center,
             ),
 
