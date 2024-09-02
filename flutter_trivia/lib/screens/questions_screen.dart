@@ -5,7 +5,9 @@ import 'package:flutter_trivia/data/questions_list.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen(this.onSelectAnswer, {super.key});
+
+  final void Function(String answer) onSelectAnswer;
 
   @override
   State<StatefulWidget> createState() {
@@ -16,7 +18,9 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionScreen extends State<QuestionsScreen> {
   var currentQuestionIndex = 0;
 
-  void answerQuestion() {
+  void answerQuestion(String selectedAnswer) {
+    widget.onSelectAnswer(selectedAnswer);
+
     setState(() {
       currentQuestionIndex += 1;
     });
@@ -37,10 +41,9 @@ class _QuestionScreen extends State<QuestionsScreen> {
             Text(
               currentQuestion.question,
               style: GoogleFonts.lato(
-                color: Colors.white, 
-                fontSize: 20,
-                fontWeight: FontWeight.bold
-              ),
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
 
@@ -48,7 +51,9 @@ class _QuestionScreen extends State<QuestionsScreen> {
             const SizedBox(height: 25),
 
             ...currentQuestion.getShuffledAnswers().map((answer) {
-              return AnswerButton(answer, answerQuestion);
+              return AnswerButton(answer, () {
+                answerQuestion(answer);
+              });
             })
           ],
         ),
