@@ -1,6 +1,10 @@
 import 'package:flutter_trivia/models/question.dart';
 
 
+
+// Make sure to always place the first answer as the correct one for each question
+
+
   const List<Question> questions = [
   Question(
     'What are the main building blocks of Flutter UIs?',
