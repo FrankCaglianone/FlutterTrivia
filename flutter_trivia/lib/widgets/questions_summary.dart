@@ -15,17 +15,34 @@ class QuestionsSummary extends StatelessWidget {
             (data) {
               return Row(
                 children: [
-                  Text(( (data['index'] as int) + 1).toString(),
-                    style: const TextStyle(color: Colors.white),
-                  ),
+                  
                   Expanded(
                     child: Column( 
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(data['question'] as String, style: const TextStyle(color: Colors.white),),
+                        Row(
+                          children: [
+                            Text(( (data['index'] as int) + 1).toString(),
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Text(data['question'] as String,
+                                textAlign: TextAlign.start,
+                                style: const TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20.0),
+                          child: Text(data['user_answer'] as String, style: const TextStyle(color: Color.fromARGB(255, 230, 4, 255)))
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20.0),
+                          child: Text(data['correct_answer'] as String, style: const TextStyle(color: Color.fromARGB(255, 4, 102, 164))),
+                        ),
                         const SizedBox(height: 25),
-                        Text(data['user_answer'] as String, style: const TextStyle(color: Color.fromARGB(255, 230, 4, 255)),),
-                        Text(data['correct_answer'] as String, style: const TextStyle(color: Color.fromARGB(255, 4, 102, 164)),)
                       ],
                     ),
                   )
