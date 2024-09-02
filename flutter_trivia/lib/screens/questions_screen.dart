@@ -34,7 +34,7 @@ class _QuestionScreen extends State<QuestionsScreen> {
             // Spacer
             const SizedBox(height: 25),
         
-            ...currentQuestion.answers.map((answer) {
+            ...currentQuestion.getShuffledAnswers().map((answer) {
               return AnswerButton(answer, () {});
             })
           ],
