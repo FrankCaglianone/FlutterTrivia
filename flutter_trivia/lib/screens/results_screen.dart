@@ -35,7 +35,7 @@ class ResultsScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text("You answered $correctQuestions out of $totalQuestions questions"),
+            Text("You answered $correctQuestions out of $totalQuestions questions", style: const TextStyle(color: Colors.white),),
             const SizedBox(height: 25),
             QuestionsSummary(summaryData),
             const SizedBox(height: 25),

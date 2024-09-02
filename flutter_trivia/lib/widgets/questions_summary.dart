@@ -15,14 +15,17 @@ class QuestionsSummary extends StatelessWidget {
             (data) {
               return Row(
                 children: [
-                  Text(( (data['index'] as int) + 1).toString() ),
+                  Text(( (data['index'] as int) + 1).toString(),
+                    style: const TextStyle(color: Colors.white),
+                  ),
                   Expanded(
-                    child: Column(
+                    child: Column( 
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(data['question'] as String),
+                        Text(data['question'] as String, style: const TextStyle(color: Colors.white),),
                         const SizedBox(height: 25),
-                        Text(data['user_answer'] as String),
-                        Text(data['correct_answer'] as String)
+                        Text(data['user_answer'] as String, style: const TextStyle(color: Color.fromARGB(255, 230, 4, 255)),),
+                        Text(data['correct_answer'] as String, style: const TextStyle(color: Color.fromARGB(255, 4, 102, 164)),)
                       ],
                     ),
                   )
