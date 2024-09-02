@@ -3,9 +3,10 @@ import 'package:flutter_trivia/data/questions_list.dart';
 import 'package:flutter_trivia/widgets/questions_summary.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen(this.selectedAnswers, {super.key});
+  const ResultsScreen(this.selectedAnswers, this.restartQuiz, {super.key});
 
   final List<String> selectedAnswers;
+  final VoidCallback restartQuiz;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -39,7 +40,12 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(height: 25),
             QuestionsSummary(summaryData),
             const SizedBox(height: 25),
-            TextButton(onPressed: () {}, child: const Text("Restart Quiz!"))
+            TextButton(
+              onPressed: restartQuiz, 
+              child: const Text("Restart Quiz!",
+                style: TextStyle(color: Colors.white)
+              )
+            )
           ],
         ),
       ),
