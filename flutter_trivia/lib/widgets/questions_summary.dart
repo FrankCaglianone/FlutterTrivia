@@ -22,8 +22,15 @@ class QuestionsSummary extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Text(( (data['index'] as int) + 1).toString(),
-                              style: const TextStyle(color: Colors.white),
+                            Container(
+                              padding: const EdgeInsets.all(10.0),
+                              decoration: BoxDecoration(
+                                color: data['user_answer'] == data['correct_answer'] ? Colors.green : Colors.red,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Text(( (data['index'] as int) + 1).toString(),
+                                style: const TextStyle(color: Colors.white),
+                              ),
                             ),
                             const SizedBox(width: 10),
                             Expanded(
@@ -35,12 +42,12 @@ class QuestionsSummary extends StatelessWidget {
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 20.0),
-                          child: Text(data['user_answer'] as String, style: const TextStyle(color: Color.fromARGB(255, 230, 4, 255)))
+                          padding: const EdgeInsets.only(left: 40.0),
+                          child: Text(data['user_answer'] as String, style: const TextStyle(color: Color.fromARGB(255, 235, 55, 255)))
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 20.0),
-                          child: Text(data['correct_answer'] as String, style: const TextStyle(color: Color.fromARGB(255, 4, 102, 164))),
+                          padding: const EdgeInsets.only(left: 40.0),
+                          child: Text(data['correct_answer'] as String, style: const TextStyle(color: Color.fromARGB(255, 14, 163, 255))),
                         ),
                         const SizedBox(height: 25),
                       ],
